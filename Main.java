@@ -88,6 +88,7 @@ public class Main {
                     unlocked.cipherText = decrypt(a.cipher, passphrase);
                     a.cipher = unlocked;
                     success = true;
+                    functionalWallet.addresses.add(a);
                 } catch (AEADBadTagException e) {
                     System.out.println("Encountered an AEADBadTagException parsing address " + a.address + ":");
                     e.printStackTrace();
@@ -98,7 +99,6 @@ public class Main {
                     genericExceptionWallet.addresses.add(a);
                 }
 
-                functionalWallet.addresses.add(a);
             }
 
             System.out.println("Addresses in original encrypted wallet: " + totalAddressCount);
